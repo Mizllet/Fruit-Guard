@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "81419295753",
+    "project_id": "fruitguard-2e86c",
+    "storage_bucket": "fruitguard-2e86c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81419295753:android:f8b01eed4ceedec30d6cd8",
+        "android_client_info": {
+          "package_name": "com.example.appcarrito"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3OyQ7DAsNivKjl4Y4isFlCSio3HXup1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,33 @@
+<!-- res/drawable/progress_battery.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo de la barra de progreso -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="#FF0000" /> <!-- Color de fondo (gris claro) -->
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+
+    <!-- Color de progreso de la barra -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="#4CAF50" /> <!-- Color de progreso (verde) -->
+                <corners android:radius="5dp" />
+            </shape>
+        </clip>
+    </item>
+
+    <!-- Contorno de la barra de progreso (se coloca al final para que esté encima del progreso) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00000000" /> <!-- Fondo transparente -->
+            <stroke
+                android:width="2dp"
+                android:color="#000000" /> <!-- Color del borde (blanco) -->
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+
+</layer-list>

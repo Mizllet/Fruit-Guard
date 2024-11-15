@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.appcarrito"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permisos para acceso a almacenamiento y reproducción de audio en segundo plano -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/logochido1"
+        android:label="AAM"
+        android:roundIcon="@mipmap/logochido1_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCarrito"
+        tools:targetApi="31">
+
+        <!-- MainActivity como pantalla principal -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="Artilleria AntiMoscas"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Actividad de inicio de sesión -->
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:exported="true" />
+
+        <!-- Actividad de configuración -->
+        <activity
+            android:name=".ConfiguracionActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+    </application>
+</manifest>
