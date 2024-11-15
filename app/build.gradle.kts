@@ -30,6 +30,19 @@ android {
             )
         }
     }
+
+    // Cambiar el nombre del APK generado
+    applicationVariants.all {
+        outputs.all {
+            val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+            if (buildType.name == "release") {
+                output.outputFileName = "FruitGuard-release-v${defaultConfig.versionName}.apk"
+            } else if (buildType.name == "debug") {
+                output.outputFileName = "FruitGuard-debug-v${defaultConfig.versionName}.apk"
+            }
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -49,6 +62,7 @@ android {
         }
     }
 }
+
 
 dependencies {
 

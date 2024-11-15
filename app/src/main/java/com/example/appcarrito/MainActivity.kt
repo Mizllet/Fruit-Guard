@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonRight: Button
 
     private val connectionHandler = Handler(Looper.getMainLooper())
-    private lateinit var connectionRunnable: Runnable
+    private var connectionRunnable: Runnable? = null // Cambia a nullable para evitar la excepción
 
     private var distanceValue: Int = 0
     private var frequencyValue: Int = 0
@@ -306,7 +306,6 @@ class MainActivity : AppCompatActivity() {
                     val packet = DatagramPacket(buffer, buffer.size)
                     Log.d("MainActivity", "Esperando mensajes de broadcast para detectar la Raspberry Pi...")
 
-                    // Variable para detectar si se reconectó
                     var lastKnownIp: String? = null
 
                     while (true) {
@@ -332,11 +331,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             // Repetir la verificación cada 10 segundos
-            connectionHandler.postDelayed(connectionRunnable, 10000)
+            connectionHandler.postDelayed(connectionRunnable!!, 10000)
         }
         // Iniciar la verificación de conexión
-        connectionHandler.post(connectionRunnable)
+        connectionHandler.post(connectionRunnable!!)
     }
+
 
     fun onCuadrito1Click(view: View) {
         openSettings()
@@ -370,8 +370,10 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer?.release()
         mediaPlayer = null
 
-        // Detener el Runnable de conexión
-        connectionHandler.removeCallbacks(connectionRunnable)
+        // Detener el Runnable de conexión si está inicializado
+        connectionRunnable?.let {
+            connectionHandler.removeCallbacks(it)
+        }
     }
 
 }
